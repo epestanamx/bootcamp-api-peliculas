@@ -28,8 +28,13 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     idDirector: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       field: 'ID_DIRECTOR',
+      allowNull: false
+    },
+    idGenero: {
+      type: DataTypes.INTEGER,
+      field: 'ID_GENERO',
       allowNull: false
     }
   }, {
@@ -39,6 +44,11 @@ module.exports = function(sequelize, DataTypes) {
     freezeTableName: true,
     tableName: 'PELICULAS'
   });
+
+  Pelicula.associate = function(models) {
+    Pelicula.hasOne(models.Director, {foreignKey: 'idDirector'});
+    Pelicula.hasOne(models.Genero, {foreignKey: 'idGenero'});
+  };
 
   return Pelicula;
 };

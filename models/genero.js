@@ -20,5 +20,8 @@ module.exports = function(sequelize, DataTypes) {
     tableName: 'GENEROS'
   });
 
+  Genero.associate = function(models) {
+    Genero.hasMany(models.Pelicula, {foreignKey: 'idPelicula'});
+  };
   return Genero;
 };
