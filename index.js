@@ -1,4 +1,5 @@
 'use strict';
+const cors = require('cors');
 const express = require('express');
 const bodyParser = require('body-parser');
 const peliculasRoutes = require('./routes/peliculas');
@@ -7,7 +8,7 @@ const generosRoutes = require('./routes/generos');
 
 // Instancia de express
 const app = express();
-
+app.use(cors());
 // application/x-www-form-urlencoded parser
 app.use(bodyParser.urlencoded({ extended: false }));
 // application/json parser
