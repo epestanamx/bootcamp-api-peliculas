@@ -46,8 +46,8 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Pelicula.associate = function(models) {
-    Pelicula.hasOne(models.Director, {foreignKey: 'idDirector'});
-    Pelicula.hasOne(models.Genero, {foreignKey: 'idGenero'});
+    Pelicula.belongsTo(models.Director, {foreignKey: 'idDirector'});
+    Pelicula.belongsTo(models.Genero, {foreignKey: 'idGenero'});
   };
 
   return Pelicula;

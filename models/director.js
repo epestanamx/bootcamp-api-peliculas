@@ -21,7 +21,7 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Director.associate = function(models) {
-    Director.hasMany(models.Pelicula, {foreignKey: 'idPelicula'});
+    Director.hasMany(models.Pelicula, {foreignKey: 'idDirector', sourceKey: 'idDirector'});
   };
 
   return Director;
